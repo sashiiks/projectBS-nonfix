@@ -1,0 +1,29 @@
+{% extends 'admin/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="main-content">
+    <h2>Data Bank Sampah Mitra CSR</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama Bank Sampah</th>
+                <th>Desa/Kelurahan</th>
+                <th>RT</th>
+                <th>RW</th>
+                <th>Tanggal Pendaftaran</th>
+                <th>Nama Pengepul</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="data-registration-table">
+            <!-- Data rows will be populated by JavaScript -->
+        </tbody>
+    </table>
+    <a href="{% url 'editmitra' %}" class="btn btn-sm btn-success">edit Data</a>
+</div>
+
+<!-- Separate JavaScript file -->
+<script src="{% static 'js/data_mitra.js' %}"></script>
+{% endblock content %}

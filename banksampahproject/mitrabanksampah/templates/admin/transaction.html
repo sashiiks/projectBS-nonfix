@@ -1,0 +1,49 @@
+{% extends 'admin/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-content">
+  <h2>Transaksi Bank Sampah</h2>
+  
+  <div class="overview">
+      <div class="card">
+          <h3>Total Keseluruhan</h3>
+          <p id="total-count">#</p>
+      </div>
+      <div class="card">
+          <h3>Total Harga Penjualan</h3>
+          <p id="total-harga-penjualan">#</p>
+      </div>
+      <div class="card">
+          <h3>Total Berat Penjualan</h3>
+          <p id="total-berat-penjualan">#</p>
+      </div>
+  </div>
+  
+  <h2>All Data</h2>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Nama Bank Sampah</th>
+              <th>Desa/Kelurahan</th>
+              <th>RT</th>
+              <th>RW</th>
+              <th>Nama Pengepul</th>
+              <th>Total Harga Pembelian</th>
+              <th>Total Berat Pembelian</th>
+              <th>Total Harga Penjualan</th>
+              <th>Total Berat Penjualan</th>
+              <th>Tanggal Pendataan</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody id="data-transactions-table">
+          <!-- Data rows will be populated by JavaScript -->
+      </tbody>
+  </table>
+</div>
+
+<!-- Load JavaScript file -->
+<script src="{% static 'js/data_transactions.js' %}"></script>
+{% endblock content %}

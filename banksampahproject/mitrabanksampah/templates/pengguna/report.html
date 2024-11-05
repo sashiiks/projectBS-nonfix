@@ -1,0 +1,51 @@
+{% extends 'pengguna/home.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container my-5">
+    <h2 class="text-center mb-4">Laporan Pendataan Sampah Mitra CSR Indocement</h2>
+
+    <!-- Filter Section -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-3">
+            <label for="bulan">Bulan:</label>
+            <select id="bulan" class="form-select">
+                <option selected>All</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="tahun">Tahun:</label>
+            <select id="tahun" class="form-select">
+                <option selected>All</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="daerah">Daerah Mitra:</label>
+            <select id="daerah" class="form-select">
+                <option selected>All</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row">
+        <div class="col-md-12 mb-5">
+          <h5 class="text-center">Jumlah Bank Sampah Daerah Mitra</h5>
+          <div class="chart-container" style="position: relative; height:350px; width:100%">
+              <canvas id="barChart"></canvas>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5 class="text-center">Jumlah Nasabah</h5>
+          <div class="chart-container" style="position: relative; height:300px; width:100%">
+              <canvas id="doughnutChart"></canvas>
+          </div>
+        </div>
+        <!-- Additional Summary Section -->
+        <!-- Table Sections with IDs for JavaScript -->
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/bank_sampah_report.js' %}"></script>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'pengguna/home.html' %}
+{% load static %}
+
+{% block content %}
+<section class="container my-5">
+  <h2 class="text-center">Pendaftaran Bank Sampah Mitra CSR Indocement</h2>
+
+  <!-- Notification area for success or error messages -->
+  <div id="notification" class="alert" style="display: none;"></div>
+
+  <form id="bankSampahForm" class="mt-4">
+    <div class="form-group mb-3">
+      <label for="desa_kelurahan">Desa/Kelurahan</label>
+      <input type="text" class="form-control" id="desa_kelurahan" name="desa_kelurahan" placeholder="Desa/Kelurahan" required>
+    </div>
+    <div class="form-group mb-3">
+      <label for="nama_bank_sampah">Nama Bank Sampah</label>
+      <input type="text" class="form-control" id="nama_bank_sampah" name="nama_bank_sampah" placeholder="Nama Bank Sampah" required>
+    </div>
+    <div class="form-group mb-3">
+      <label for="rt">RT</label>
+      <input type="text" class="form-control" id="rt" name="rt" placeholder="RT">
+    </div>
+    <div class="form-group mb-3">
+      <label for="rw">RW</label>
+      <input type="text" class="form-control" id="rw" name="rw" placeholder="RW">
+    </div>
+    <div class="form-group mb-3">
+      <label for="tanggal_pendaftaran">Tanggal Pendaftaran</label>
+      <input type="date" class="form-control" id="tanggal_pendaftaran" name="tanggal_pendaftaran" required>
+    </div>
+    <div class="form-group mb-3">
+      <label for="nama_pengepul">Nama Pengepul</label>
+      <input type="text" class="form-control" id="nama_pengepul" name="nama_pengepul" placeholder="Nama Pengepul" required>
+    </div>
+    <button type="button" class="btn btn-primary w-100" onclick="submitBankSampahForm()">Daftar</button>
+  </form>
+</section>
+
+<!-- Link ke JavaScript eksternal -->
+<script src="{% static 'js/bank_sampah_regist.js' %}"></script>
+{% endblock %}

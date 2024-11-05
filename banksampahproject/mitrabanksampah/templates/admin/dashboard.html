@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <title>BS-CSR admin</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    
+  <div class="sidebar">
+    <div class="logo">
+        <img src="{% static 'images/Logo_Bank_Sampah.png' %}" alt="Logo" />
+    </div>
+
+    <ul class="sidebar-nav">
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'mitrabs' %}">Data Bank Sampah</a></li>
+        <li><a href="{% url 'transaction' %}">Data Trsansaksi bank sampah</a></li>
+        <li><a href="{% url 'maintenance' %}">maintenance konten</a></li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <header class="header">
+        <h1>Admin Bank Sampah CSR </h1>
+        <div class="profile">
+            <span>Name</span>
+        </div>
+    </header>
+
+
+    {% block content %}
+
+    <section class="overview">
+            <div class="card">
+                <i class="icon-bank"></i>
+                <p>Jumlah Bank Sampah Aktif</p>
+                <h2>233</h2>
+                <small>Recently updated</small>
+            </div>
+            <div class="card">
+                <i class="icon-purchase"></i>
+                <p>Pembelian Sampah</p>
+                <h2>233</h2>
+                <small>Recently updated</small>
+            </div>
+            <div class="card">
+                <i class="icon-savings"></i>
+                <p>Jumlah Tabungan Nasabah</p>
+                <h2>233</h2>
+                <small>Recently updated</small>
+            </div>
+            <div class="card">
+                <i class="icon-customers"></i>
+                <p>Jumlah Nasabah Aktif</p>
+                <h2>233</h2>
+                <small>Recently updated</small>
+            </div>
+        </section>
+
+        <section class="charts">
+            <div class="chart">
+                <h3>Jumlah Pembelian</h3>
+                <canvas id="purchaseChart"></canvas>
+                <div class="buttons">
+                    <button>Weekly</button>
+                    <button>Monthly</button>
+                    <button>Yearly</button>
+                </div>
+            </div>
+
+            <div class="chart">
+                <h3>Jumlah Nasabah</h3>
+                <canvas id="customerChart"></canvas>
+                <div class="buttons">
+                    <button>Weekly</button>
+                    <button>Monthly</button>
+                    <button>Yearly</button>
+                </div>
+            </div>
+        </section>
+
+
+    {% endblock content %}
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Bank Sampah. All Rights Reserved.</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>

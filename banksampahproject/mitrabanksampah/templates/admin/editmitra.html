@@ -1,0 +1,47 @@
+{% extends 'admin/dashboard.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="main-content">
+    <h2>Edit Data Bank Sampah Mitra CSR</h2>
+    <form id="edit-registration-form">
+        <input type="hidden" id="registration-id" name="id" value=""> <!-- Hidden field to store registration ID -->
+        
+        <div class="form-group">
+            <label for="nama_bank_sampah">Nama Bank Sampah</label>
+            <input type="text" id="nama_bank_sampah" name="nama_bank_sampah" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="desa_kelurahan">Desa/Kelurahan</label>
+            <input type="text" id="desa_kelurahan" name="desa_kelurahan" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="rt">RT</label>
+            <input type="text" id="rt" name="rt" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="rw">RW</label>
+            <input type="text" id="rw" name="rw" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="tanggal_pendaftaran">Tanggal Pendaftaran</label>
+            <input type="date" id="tanggal_pendaftaran" name="tanggal_pendaftaran" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="nama_pengepul">Nama Pengepul</label>
+            <input type="text" id="nama_pengepul" name="nama_pengepul" class="form-control">
+        </div>
+        
+        <button type="button" class="btn btn-primary" onclick="updateRegistration()">Save Changes</button>
+        <a href="{% url 'data_bank_sampah_mitra' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+
+<!-- Separate JavaScript file for handling form submission -->
+<script src="{% static 'js/edit_data_mitra.js' %}"></script>
+{% endblock content %}

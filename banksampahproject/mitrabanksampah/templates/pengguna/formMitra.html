@@ -1,0 +1,183 @@
+{% extends 'pengguna/home.html' %} 
+{% load static %} 
+{% block content %}
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="text-center">Pendataan Sampah Mitra CSR Indocement</h2>
+  </div>
+
+  <!-- Notification area for success and error messages -->
+  <div id="notification" class="alert" style="display: none"></div>
+
+  <form id="bankSampahForm" class="mt-4">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="nama_bank_sampah" class="form-label"
+          >Nama Bank Sampah</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="nama_bank_sampah"
+          name="nama_bank_sampah"
+          placeholder="Isi Nama Bank Sampah Mitra"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="desa_kelurahan" class="form-label">Desa/Kelurahan</label>
+        <input
+          type="text"
+          class="form-control"
+          id="desa_kelurahan"
+          name="desa_kelurahan"
+          placeholder="Isi Desa/Kelurahan"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="rt" class="form-label">RT</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rt"
+          name="rt"
+          placeholder="RT"
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="rw" class="form-label">RW</label>
+        <input
+          type="text"
+          class="form-control"
+          id="rw"
+          name="rw"
+          placeholder="RW"
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="jumlah_nasabah" class="form-label">Jumlah Nasabah</label>
+        <input
+          type="number"
+          class="form-control"
+          id="jumlah_nasabah"
+          name="jumlah_nasabah"
+          placeholder="Jumlah Nasabah"
+          required
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="nasabah_aktif" class="form-label">Nasabah Aktif</label>
+        <input
+          type="number"
+          class="form-control"
+          id="nasabah_aktif"
+          name="nasabah_aktif"
+          placeholder="Nasabah Aktif"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="penerimaan_nasabah" class="form-label"
+          >Berat Pembelian (kg)</label
+        >
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          id="penerimaan_nasabah"
+          name="penerimaan_nasabah"
+          placeholder="Total Berat Pembelian (kg)"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="pemberian_sampah_nasabah" class="form-label"
+          >Total Harga Pembelian (Rp)</label
+        >
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          id="pemberian_sampah_nasabah"
+          name="pemberian_sampah_nasabah"
+          placeholder="Total Harga Pembelian (Rp)"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="penjualan_sampah" class="form-label"
+          >Berat Penjualan (kg)</label
+        >
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          id="penjualan_sampah"
+          name="penjualan_sampah"
+          placeholder="Total Berat Penjualan (kg)"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="hasil_penjualan_sampah" class="form-label"
+          >Total Harga Penjualan (Rp)</label
+        >
+        <input
+          type="number"
+          step="0.01"
+          class="form-control"
+          id="hasil_penjualan_sampah"
+          name="hasil_penjualan_sampah"
+          placeholder="Total Harga Penjualan (Rp)"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="nama_penginput" class="form-label">Nama Pengepul</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nama_penginput"
+          name="nama_penginput"
+          placeholder="Nama Pengepul"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="tanggal_pendirian" class="form-label"
+          >Tanggal Pendataan</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="tanggal_pendirian"
+          name="tanggal_pendirian"
+          required
+        />
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-dark w-100" onclick="submitForm()">
+      Kirim
+    </button>
+  </form>
+</div>
+
+<!-- Link to the external JavaScript file -->
+<script src="{% static 'js/bank_sampah_form.js' %}"></script>
+{% endblock content %}
